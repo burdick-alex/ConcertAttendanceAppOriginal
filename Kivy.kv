@@ -1,0 +1,199 @@
+ScreenManagement:
+    StartScreen:
+    TypeOrSwipe:
+    Swipe:
+    Login:
+    Ending:
+<StartScreen>:
+    name: "start"
+    FloatLayout:
+        Image:
+            source: 'THbanner.png'
+            size_hint: (1,.3)
+            pos: (0,root.height - self.height)
+        Button:
+            text: "Enter the file name\nand\nclick submit"
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            halign: 'center'
+            background_normal: ''
+            background_color: (0,0,.6,1)
+            font_size: "30sp"
+            font_color: (255,255,255,.5)
+            size_hint: (.625,.25)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - 40)
+        TextInput:
+            id: file
+            pos: ((root.width / 2) - (self.width / 2), ((root.top / 2)- 80) - (self.height / 2))
+            size_hint: (.11,.05)
+        Button:
+            text: "Start New File"
+            font_size: "20sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((3*(root.width / 4)) - (self.width / 2), (((root.top / 2)- 80) - (self.height / 2)) - 83)
+            on_release: root.selectNewFile()
+        Button:
+            text: "Use existing file"
+            font_size: "20sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 4) - (self.width / 2), (((root.top / 2)- 80) - (self.height / 2)) - 83)
+            on_release: root.selectExistingFile()
+<TypeOrSwipe>:
+    name: "inputType"
+    FloatLayout:
+        Image:
+            source: 'THbanner.png'
+            size_hint: (1,.3)
+            pos: (0,root.height - self.height)
+        Button:
+            text: "Choose input method:"
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            halign: 'center'
+            background_normal: ''
+            background_color: (0,0,.6,1)
+            font_size: "30sp"
+            font_color: (255,255,255,.5)
+            size_hint: (.625,.25)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - (root.height /17))
+        Button:
+            text: "Swipe ID"
+            font_size: "20sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - (root.height /17) - (root.height / 5))
+            size_hint: (.25,.15)
+            on_release: app.root.current = "swipes"
+        Button:
+            text: "Type in UIN"
+            font_size: "20sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - (root.height /17) - (root.height / 5) - (root.height / 5))
+            on_release: root.keyboard()
+<Swipe>:
+    name: "swipes"
+    FloatLayout:
+        Image:
+            source: 'THbanner.png'
+            size_hint: (1,.3)
+            pos: (0,root.height - self.height)
+        Image:
+            source: 'band.jpg'
+            size_hint: (.35,.42)
+            pos: (10,10)
+        Image:
+            source: 'band2.jpg'
+            size_hint: (.35,.42)
+            pos: (root.width - (10 + self.width),10)
+        Button:
+            text: "1.Swipe Your ID\n2.Make sure the text box is filled\n3.Click submit"
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            halign: 'center'
+            background_normal: ''
+            background_color: (0,0,.6,1)
+            font_size: "28sp"
+            font_color: (255,255,255,.5)
+            size_hint: (.625,.25)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - (root.height /17))
+        TextInput:
+            id: uin
+            pos: ((root.width / 2) - (self.width / 2), ((root.top / 2)- (root.height /8)) - (self.height / 2))
+            size_hint: (.11,.05)
+        Button:
+            text: "Submit"
+            font_size: "50sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 2) - (self.width / 2), (((root.top / 2)- (root.height /8)) - (self.height / 2)) - (root.height /8))
+            on_release: root.swiperNoSwiping()
+        Button:
+            text: "Go Back"
+            font_size: "20sp"
+            background_normal: ''
+            size_hint: (.15,.08)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 2) - (self.width / 2), (((root.top / 2)- (root.height /8)) - (self.height / 2)) - (root.height /8) - (root.height / 8))
+            on_release: app.root.current = "inputType"
+
+<Login>:
+    name: "login"
+            
+    FloatLayout:
+        Image:
+            source: 'THbanner.png'
+            size_hint: (1,.3)
+            pos: (0,root.height - self.height)
+        Image:
+            source: 'band.jpg'
+            size_hint: (.35,.42)
+            pos: (10,10)
+        Image:
+            source: 'band2.jpg'
+            size_hint: (.35,.42)
+            pos: (root.width - (10 + self.width),10)
+        Button:
+            text: "Enter your UIN\nand\nclick submit"
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            halign: 'center'
+            background_normal: ''
+            background_color: (0,0,.6,1)
+            font_size: "30sp"
+            font_color: (255,255,255,.5)
+            size_hint: (.625,.25)
+            pos: ((root.width / 2) - (self.width / 2) , root.height - (root.height / 2) - (root.height /17))
+        TextInput:
+            id: uin
+            pos: ((root.width / 2) - (self.width / 2), ((root.top / 2)- (root.height /8)) - (self.height / 2))
+            size_hint: (.11,.05)
+            hint_text: "Type Here"
+        Button:
+            text: "Submit"
+            font_size: "50sp"
+            background_normal: ''
+            size_hint: (.25,.15)
+            markup: True
+            font_name: 'Balloon Extra Bold.ttf'
+            background_color: (0,0,0,1)
+            pos: ((root.width / 2) - (self.width / 2), (((root.top / 2)- (root.height /8)) - (self.height / 2)) - (root.height /8))
+            on_release: root.cool()
+   
+	
+
+<Ending>:
+    name: "ending"
+    on_enter: root.change()
+    FloatLayout:
+        Image:
+            source: 'gigs.png'
+            size_hint: (.2,.2)
+            pos: ((root.width / 2) - (self.width / 2),self.height)
+        Button:
+            halign: "center"
+            font_size: "50sp"
+            background_color: (0,0,255,.1)
+            text: "Thank you for coming.\nEnjoy the music!"
+            size_hint: (.5,.2)
+            pos: ((root.width /2) - (self.width / 2),(root.height /2) - (self.height / 2))
+            on_release: app.root.current = "inputType"
